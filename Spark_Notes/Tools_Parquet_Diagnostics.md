@@ -8,7 +8,7 @@ relevant links on internals of Parquet  and their metadata are
  - Also the Parquet source code has many additional details in the form of comments to the code. See for example: [ParquetOutputFormat.java](https://github.com/Parquet/parquet-mr/blob/master/parquet-hadoop/src/main/java/parquet/hadoop/ParquetOutputFormat.java)
 
 Some of the main points about Parquet internals that I want to highlight are:
-- Hierarchically, a Parquet file consists of one or more "row groups". A row group contains data grouped ion "column chunks", one per column. Column chunks are structured in pages. Each column chunk contains one or more pages.
+- Hierarchically, a Parquet file consists of one or more "row groups". A row group contains data grouped in "column chunks", one per column. Column chunks are structured in pages. Each column chunk contains one or more pages.
 - Parquet files have several metadata structures, containing among others the schema, the list of columns and details about the data stored there, such as name and datatype of the columns, their size, number of records and basic statistics as minimum and maximum value (for datatypes where support for this is available, as discussed in the previous section).
 - Parquet can use compression and encoding. The user can choose the compression algorithm used, if any. By default Spark uses snappy. 
 - Parquet can store complex data types and support nested structures. This is quite a powerful feature and it goes beyond the simple examples presented in this post.
